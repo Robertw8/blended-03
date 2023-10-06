@@ -16,9 +16,14 @@ export const SearchForm = ({ getRegion }) => {
     const value = e.currentTarget.value;
     setSelectValue(value);
   };
-  console.log(selectValue);
+
+  const handlerForm = e => {
+    e.preventDefault();
+    getRegion(selectValue);
+  };
+
   return (
-    <SearchFormStyled>
+    <SearchFormStyled onSubmit={handlerForm}>
       <BtnSearch type="submit">
         <FiSearch size="16px" />
       </BtnSearch>
